@@ -1,0 +1,41 @@
+version: "2"
+
+services: 
+  db:
+    image: mysql:5.7
+    container_name: db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=accounts
+      - MYSQL_USER=demo
+      - MYSQL_PASSWORD=demo
+    volumes:
+      - ./mysql/data:/docker-entrypoint-initdb.d
+    networks:
+      owldemo:
+    ports:
+      - 3306:3306
+  adminer:
+    image: adminer:4.6.2
+    container_name: adminer
+    networks:
+      owldemo:
+    ports:
+      - 8081:8080
+  app:
+    image: greggu/owl-app:0.1
+    build: 
+      context: ./app
+      dockerfile: Dockerfile
+    environment:
+      - DB_NAME=accounts
+      - DB_USER=demo
+      - DB_PASSWORD=demo
+      - DB_HOST=db
+    networks:
+      owldemo:
+    ports:
+      - "7001:7001"
+
+networks:
+  owldemo:

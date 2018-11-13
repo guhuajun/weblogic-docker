@@ -1,0 +1,14 @@
+version: "2"
+
+services: 
+  domain1221:
+    image: greggu/weblogic-base:0.1
+    container_name: wlsadmin
+    build: 
+      context: ./1221-domain
+      dockerfile: Dockerfile
+      args: 
+        - "ADMIN_PASSWORD=welcome1"
+        # - "PRODUCTION_MODE=-prod"
+    ports: 
+      - "7001:7001"
