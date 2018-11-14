@@ -26,6 +26,25 @@ An example project for dockerize an application with WebLogic.
 2. The difference between *.dev.yaml and *.prod.yaml is the deploy method (auto-deploy v.s. wlst) and production mode.
 3. Currently(until 2018/11/14), you should replace PRODUCTION_MODE with DOM_PRODUCTION_MODE in 1221-domain/Dockerfile.
    Please refer to [this issue](https://github.com/oracle/docker-images/issues/1049) for more details.
+4. Here is a list of places that you may want to change for your project.
+
+|File Name (Relative)|Line Number|Value|Comment|
+|--------------------|-----------|-----|-------|
+|docker-compose.weblogic.base.dev.yaml/docker-compose.weblogic.base.prod.yaml|5|greggu/weblogic-base:0.1-dev|Should be your image name|
+|docker-compose.weblogic.base.dev.yaml/docker-compose.weblogic.base.prod.yaml|11|welcome1|Should be your password|
+|1221-domain/container-scripts/wlst|n/a|\<CRLF\>|Should be LF (for Docker for Windows user)|
+|app/deploy/account.war|n/a|n/a|Should be your application package name|
+|app/Dockerfile.dev|1|greggu/weblogic-base:0.1-dev|Should be your image name|
+|app/Dockerfile.dev|2|account.war|Should be your application package name|
+|app/Dockerfile.prod|1|greggu/weblogic-base:0.1-prod|Should be your image name|
+|app/Dockerfile.prod|4|account|Should be your application name|
+|app/Dockerfile.prod|5|account.war|Shoud be your application package name|
+|docker-compose.dev.yaml/docker-compose.prod.yaml|9|accounts|Should be your database name|
+|docker-compose.dev.yaml/docker-compose.prod.yaml|10-11|demo|Should be your database username/password|
+|docker-compose.dev.yaml/docker-compose.prod.yaml|26|greggu/owl-app:0.1-dev/greggu/owl-app:0.1-prod|Should be your image name|
+|docker-compose.dev.yaml/docker-compose.prod.yaml|31|accounts|Should be your database name|
+|docker-compose.dev.yaml/docker-compose.prod.yaml|32-33|demo|Should be your database username/password|
+
 
 ## Disclamier
 **I am not a WebLogic expert, please feel free to file a pull request to fix any issue.**
