@@ -1,7 +1,5 @@
 FROM greggu/weblogic-base:0.1-prod
 
-# COPY account.war $DOMAIN_HOME/autodeploy/account.war
-
 # Define variables
 ENV APP_NAME="account" \
     APP_PKG_FILE="account.war" \
