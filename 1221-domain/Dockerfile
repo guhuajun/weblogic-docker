@@ -31,7 +31,8 @@ ARG DOMAIN_NAME
 ARG ADMIN_PORT
 ARG CLUSTER_NAME
 ARG DEBUG_FLAG
-ARG PRODUCTION_MODE
+# ARG PRODUCTION_MODE
+ARG DOM_PRODUCTION_MODE
 
 # WLS Configuration (editable during runtime)
 # ---------------------------
@@ -49,7 +50,8 @@ ENV DOMAIN_NAME="${DOMAIN_NAME:-base_domain}" \
     ADMIN_PORT="${ADMIN_PORT:-7001}" \
     CLUSTER_NAME="${CLUSTER_NAME:-DockerCluster}" \
     debugFlag="${DEBUG_FLAG:-false}" \
-    PRODUCTION_MODE="${PRODUCTION_MODE:-prod}" \
+    # PRODUCTION_MODE="${PRODUCTION_MODE:-prod}" \
+    PRODUCTION_MODE="${DOM_PRODUCTION_MODE:-prod}" \
     PATH=$PATH:/u01/oracle/oracle_common/common/bin:/u01/oracle/wlserver/common/bin:/u01/oracle/user_projects/domains/${DOMAIN_NAME:-base_domain}/bin:/u01/oracle
 
 # Add files required to build this image

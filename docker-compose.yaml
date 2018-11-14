@@ -28,10 +28,10 @@ services:
       context: ./app
       dockerfile: Dockerfile
     environment:
-      - DB_NAME=accounts
-      - DB_USER=demo
-      - DB_PASSWORD=demo
-      - DB_HOST=db
+      - "DB_NAME=accounts"
+      - "DB_USER=demo"
+      - "DB_PASSWORD=demo"
+      - "DB_HOST=db"
     networks:
       owldemo:
     ports:
