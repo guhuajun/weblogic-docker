@@ -1,3 +1,13 @@
 FROM greggu/weblogic-base:0.1
 
-COPY account.war $DOMAIN_HOME/autodeploy/account.war
+# COPY account.war $DOMAIN_HOME/autodeploy/account.war
+
+# Define variables
+ENV APP_NAME="account" \
+    APP_PKG_FILE="account.war" \
+    APP_PKG_LOCATION="/u01/oracle"
+
+# Copy files and deploy application in WLST Offline mode
+COPY deploy/* /u01/oracle/
+
+RUN wlst /u01/oracle/app-deploy.py

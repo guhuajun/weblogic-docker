@@ -9,6 +9,6 @@ services:
       dockerfile: Dockerfile
       args: 
         - "ADMIN_PASSWORD=welcome1"
-        # - "PRODUCTION_MODE=-prod"
+        - "DOM_PRODUCTION_MODE=prod"
     ports: 
       - "7001:7001"
