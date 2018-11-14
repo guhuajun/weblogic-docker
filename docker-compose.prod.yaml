@@ -23,7 +23,7 @@ services:
     ports:
       - 8081:8080
   app:
-    image: greggu/owl-app:0.1
+    image: greggu/owl-app:0.1-prod
     build: 
       context: ./app
       dockerfile: Dockerfile.prod
