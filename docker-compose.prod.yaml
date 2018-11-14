@@ -26,7 +26,7 @@ services:
     image: greggu/owl-app:0.1
     build: 
       context: ./app
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
     environment:
       - "DB_NAME=accounts"
       - "DB_USER=demo"

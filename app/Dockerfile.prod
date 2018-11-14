@@ -1,4 +1,4 @@
-FROM greggu/weblogic-base:0.1
+FROM greggu/weblogic-base:0.1-prod
 
 # COPY account.war $DOMAIN_HOME/autodeploy/account.war
 
